@@ -1,0 +1,54 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,400i,700">
+<app-navbar></app-navbar>
+<div class="large-screen" *ngIf="isLargeScreen">
+  <div class="main-container">
+    <div id="map"></div>
+    <div class="cards-container">
+      <div *ngFor="let place of places" class="space" (click)="showPlaceOnMap(place)">
+        <div class="card">
+          <div class="card-media" [style.background-image]="'url(' + place.photos[0].getUrl() + ')'">
+            <!-- <div class="delivery-time">39 mins</div> -->
+            <div class="bookmark"></div>
+          </div>
+          <div class="card-description">
+            <div class="about-place">
+              <div class="place">
+                <p class="place-name">{{ place.name }}</p>
+                <p class="place-speciality">{{place.types}}</p>
+                <p class="place-status">{{place.open_now ? 'Open Now' : ''}}</p>
+              </div>
+              <div class="place-review">
+                <p class="rating">{{ place.rating }} &#x2605;</p>
+                <!-- <p class="per-person"> &#x20b9; 200 per one</p> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="small-screen" *ngIf="!isLargeScreen && places.length > currentIndex">
+  <div class="tbgwrap">
+    <div class="tphoto" *ngIf="places.length > 0">
+      <img [src]="places[currentIndex].photos[0].getUrl()" title="tphoto" alt="Tinder Photo" />
+      <div class="tname">{{ places[currentIndex].name }}, <span class="age">27</span></div>
+      <div class="tinfo">{{ places[currentIndex].rating }} &#x2605;</div>
+    </div>
+    <div class="tcontrols">
+      <div class="tno" (click)="nextCard(false)" style="background-image: url('../../assets/images/delete\ \(2\).png'); background-size: cover;">
+        <i class="fa fa-times" aria-hidden="true"></i>
+      </div>
+      <div class="ti">
+        <i class="fa fa-info" aria-hidden="true" ></i>
+      </div>
+      <div class="tyes" (click)="nextCard(true)" style="background-image: url('../../assets/images/accept.png'); background-size: cover;">
+        <i class="fa fa-heart" aria-hidden="true"></i>
+      </div>
+      
+    </div>
+  </div>
+</div>
+<!-- <div id="map" style="width: 100%; height: 400px;" *ngIf="!isLargeScreen && places.length < currentIndex">
+</div> -->
+

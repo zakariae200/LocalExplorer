@@ -1,0 +1,24 @@
+#navbar {
+    -webkit-box-shadow: 0px 5px 8px -4px rgba(0,0,0,0.55);
+    -moz-box-shadow: 0px 5px 8px -4px rgba(0,0,0,0.55);
+    box-shadow: 0px 5px 8px -4px rgba(0,0,0,0.55);
+    margin-bottom: 10px;
+  }
+  
+  .navbar-left {
+    display: flex;
+    align-items: center; /* Align items vertically */
+  }
+  
+  .navbar-left img {
+    width: 60px; 
+    height: 60px; 
+    margin-right: 10px;
+  }
+  
+  .navbar-left span {
+    font-size: 1.5em;
+    display: flex;
+    align-items: center; /* Align text vertically */
+  }
+  
